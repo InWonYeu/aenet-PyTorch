@@ -478,8 +478,8 @@ class PrepDataloader(object):
 
 					aux_iesp.append(aux)
 
-				aux_iesp = np.array(aux_iesp)
-				aux_iesp = torch.Tensor(aux_iesp).double()
+				aux_iesp = np.array(aux_iesp, dtype=np.int8)
+				aux_iesp = torch.Tensor(aux_iesp, dtype=torch.int8)
 				aux_batch.append(aux_iesp)
 			logic_tensor_reduce.append(aux_batch)
 
