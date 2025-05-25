@@ -78,7 +78,7 @@ class NetAtom(nn.Module):
 		# Gather back all atoms corresponding to the same strucuture from partial_E_ann
 		list_E_ann = torch.zeros( (len(logic_reduce[0])), device=self.device ).double()
 		for iesp in range(len(self.species)):
-			list_E_ann = list_E_ann + torch.einsum( "ij,ki->k", partial_E_ann[iesp], logic_reduce[iesp] )
+			list_E_ann = list_E_ann + torch.einsum( "ij,ki->k", partial_E_ann[iesp], logic_reduce[iesp].double() )
 
 		return list_E_ann
 
